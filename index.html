@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice() {
+            let num = Math.round((Math.random() * 3))
+            
+            if (num === 1) {
+                return "Rock";
+            } else if (num === 2) {
+                return "Paper";
+            } else {
+                return "Scissors";
+            }
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            let player = playerSelection.toLowerCase();
+            let computer = computerSelection.toLowerCase();
+
+            console.log("Player played", player);
+            console.log("Computer played", computer); 
+
+            if (player === computer) {
+                return "Draw!";
+            } else if (player === "rock") {
+                if (computer === "paper") {
+                    return "You Lose!";
+                } else {
+                    return "You Win!";
+                }
+            } else if (player === "paper") {
+                if (computer === "scissors") {
+                    return "You Lose!";
+                } else {
+                    return "You Win!";
+                }
+            } else {
+                if (computer === "rock") {
+                    return "You Lose!";
+                } else {
+                    return "You Win!";
+                }
+            }
+        }
+
+        function game() {
+            let playerMove = "rock";
+            let computerMove = "rock"; 
+            for (let i = 1; i <= 5; i++) {
+                playerMove = prompt("Make your move!");
+                computerMove = getComputerChoice();
+                console.log(playRound(playerMove, computerMove)); 
+            }
+        }
+
+        // console.log(getComputerChoice())
+
+        /*
+        const playerSelection = "rock";
+        const computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+        */
+
+        game(); 
+    </script>
+</body>
+</html>
